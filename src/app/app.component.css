@@ -1,0 +1,9 @@
+.content-container {
+    background-color: #fafafa;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 56px;
+    padding: 0 16px;
+    position: absolute;
+}
