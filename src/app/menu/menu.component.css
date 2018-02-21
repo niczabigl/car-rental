@@ -2,5 +2,23 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-top: 10%;
+}
+.car-header-image {
+    background-image: url('http://icons.iconarchive.com/icons/icons8/android/512/Transport-Car-icon.png');
+    background-size: cover;
+}
+.user-header-image {
+    background-image: url('http://simpleicon.com/wp-content/uploads/user1.png');
+    background-size: cover;
+}
+.rental-header-image {
+    background-image: url('https://image.freepik.com/free-icon/man-with-car_318-9378.jpg');
+    background-size: cover;
+}
+mat-card{
+    max-width: 500px;
+}
+mat-card img {
+    min-height: 400px;
+    max-height: 400px;
 }

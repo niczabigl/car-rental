@@ -12,6 +12,18 @@ const routes: Routes = [
         path: '',
         redirectTo: '/menu',
         pathMatch: 'full' 
+    },
+    {
+        path: 'users',
+        component: UserComponent,
+    },
+    {
+        path: 'cars',
+        component: CarComponent,
+    },
+    {
+        path: 'rentals',
+        component: RentalComponent,
     }
 ];
 
