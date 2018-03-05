@@ -3,3 +3,25 @@
     flex-direction: row;
     justify-content: space-around;
 }
+
+.brand-Seat{
+    background-image: url('http://simpleicon.com/wp-content/uploads/user1.png');
+    background-size: cover;
+} 
+.brand-Mercedes{
+    background-image: url('http://simpleicon.com/wp-content/uploads/user1.png');
+    background-size: cover;
+}
+.brand-Audi{
+    background-image: url('http://simpleicon.com/wp-content/uploads/user1.png');
+    background-size: cover;
+}
+.brand-VW{
+    background-image: url('http://simpleicon.com/wp-content/uploads/user1.png');
+    background-size: cover;
+}
+.brand-Peugeot{
+    background-image: url('https://d12ylu6pqf4csx.cloudfront.net/assets/logos/peugeot-103dd17e2a04653221548da69e350705c65a5b67edc5ebc00f060f48b4ea03bd.svg');
+    background-size: cover;
+}
+

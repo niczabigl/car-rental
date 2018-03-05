@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Car, EnergyType } from '../model/car';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
 @Injectable()
-
 export class CarService {
 
-    CARS: Car[] = [
+    CARS : Car[] = [
         new Car("Seat", "Ibiza", EnergyType.Gas, 50, 300, 0.006, 200),
         new Car("VW", "Golf", EnergyType.Electric, 70, 300, 0.006, 250),
         new Car("Peugeot", "3008", EnergyType.Diesel, 90, 300, 0.006, 300),
@@ -14,11 +15,10 @@ export class CarService {
     ];
 
   constructor() { 
-      
   }
-
-  public getAllCars(){
-      return this.CARS;
+  
+  public getAllCars() : Observable <Car[]> {
+      return of(this.CARS);
   }
 
   public getAvailableCarsOnly(){
@@ -30,6 +30,5 @@ export class CarService {
       }
       return availableCars;
   }
-
 }
                
