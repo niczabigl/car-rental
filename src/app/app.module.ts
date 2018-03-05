@@ -11,11 +11,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { RoutingModule } from './routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
+import { CarComponent } from './car/car.component';
+import { UserComponent } from './user/user.component';
+import { RentalComponent } from './rental/rental.component';
+import { CarService } from './services/car.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    CarComponent,
+    UserComponent,
+    RentalComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +34,7 @@ import { MenuComponent } from './menu/menu.component';
     MatCardModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [CarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
