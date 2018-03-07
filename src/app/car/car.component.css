@@ -3,25 +3,44 @@
     flex-direction: row;
     justify-content: space-around;
 }
+.buton-container{
+    margin: 20px;
+}
 
-.brand-Seat{
+.brand-seat{
     background-image: url('http://simpleicon.com/wp-content/uploads/user1.png');
     background-size: cover;
 } 
-.brand-Mercedes{
+.brand-mercedes{
     background-image: url('http://simpleicon.com/wp-content/uploads/user1.png');
     background-size: cover;
 }
-.brand-Audi{
+.brand-audi{
     background-image: url('http://simpleicon.com/wp-content/uploads/user1.png');
     background-size: cover;
 }
-.brand-VW{
+.brand-vw{
     background-image: url('http://simpleicon.com/wp-content/uploads/user1.png');
     background-size: cover;
 }
-.brand-Peugeot{
+.brand-peugeot{
     background-image: url('https://d12ylu6pqf4csx.cloudfront.net/assets/logos/peugeot-103dd17e2a04653221548da69e350705c65a5b67edc5ebc00f060f48b4ea03bd.svg');
     background-size: cover;
 }
 
+.gas-icon{
+    background-image: url('/Users/alumno/App/car-rental/src/assets/img/gas-icon.png');
+    background-size: cover;
+}
+.gasoil-icon{
+    background-image: url('/Users/alumno/App/car-rental/src/assets/img/gasoil-icon.png');
+    background-size: cover;
+}
+.diesel-icon{
+    background-image: url('/Users/alumno/App/car-rental/src/assets/img/diesel-icon.png');
+    background-size: cover;
+}
+.hybrid-icon{
+    background-image: url('/Users/alumno/App/car-rental/src/assets/img/hybrid-icon.png');
+    background-size: cover;
+}

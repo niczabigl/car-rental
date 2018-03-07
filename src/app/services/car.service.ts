@@ -14,6 +14,8 @@ export class CarService {
         new Car("Mercedes", "GLE Coupe", EnergyType.Hybrid, 160, 300, 0.006, 600)
     ];
 
+    avaliableCars : Car[];
+
   constructor() { 
   }
   
@@ -21,14 +23,14 @@ export class CarService {
       return of(this.CARS);
   }
 
-  public getAvailableCarsOnly(){
+  public getAvailableCarsOnly() : Observable<Car[]>{
       var availableCars = new Array<Car>();
       for(let car of this.CARS ){      
           if (car.isAvailable){
               availableCars.push(car);
           }
       }
-      return availableCars;
+      return of(availableCars);
   }
 }
                

@@ -1,15 +1,13 @@
+<div class="buton-container">
+  <button (click)="getAllCars()" mat-raised-button color="primary">Todos los coches</button>
+  <button (click)="getAllAvailableCars()" mat-raised-button color="primary">Todos los coches Disponibles</button>
+</div>
 <div class="container">
-  
     <div *ngFor="let car of cars">
       <div *ngIf="car.isAvailable">
     <mat-card>
       <mat-card-header>
-		<div [ngSwitch]="car.maker">
-			<div *ngSwitchCase="Peugeot">
-				<div mat-card-avatar class="brand-Peugeot"></div>
-			</div>
-		</div>
-        
+        <img [ngClass]="getEnergyTypeIcon(car.EnergyType)">
       </mat-card-header>
       <mat-card-title>	{{car.model}} </mat-card-title>
       <mat-card-subtitle> -------------------- </mat-card-subtitle>
@@ -25,10 +23,13 @@
         </div>    
       </mat-card-content>
       <img mat-card-image src="">
-      <mat-card-actions><button routerLink="/users" mat-raised-button color="primary">Ver coche..</button></mat-card-actions>
+      <mat-card-actions><button routerLink="/car-detail" mat-raised-button color="primary"> Ver coche..</button></mat-card-actions>
       <mat-card-footer></mat-card-footer>
     </mat-card>
     	</div>
-    </div>
-  
+    </div> 
+</div>
+<app-car-detail [car]="selectedCar"></app-car-detail>
+<div class="buton-container">
+  <button routerLink="/new-car" mat-raised-button color="primary">Añadir nuevo coche</button>
 </div>

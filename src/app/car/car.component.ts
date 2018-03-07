@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Car } from '../model/car'
+import { Car, EnergyType } from '../model/car'
 import { CarService } from '../services/car.service';
 
 @Component({
@@ -14,7 +14,35 @@ export class CarComponent implements OnInit {
   constructor(private carService: CarService) { }
   
   ngOnInit() {
-    this.carService.getAllCars().subscribe(cars => this.cars = cars);
+    
+  }
+  getAllCars():void{
+    this.carService.getAllCars().subscribe(cars => this.cars = cars);  
   }
 
+  getAllAvailableCars():void{
+    this.carService.getAvailableCarsOnly().subscribe(cars => this.cars = cars); 
+  }
+  
+  getEnergyTypeIcon(energy : EnergyType) : string {
+    
+    var res;
+
+    switch(energy){
+      case 1:
+        res = 'gas-icon';
+        break;
+      case 2:
+        res = 'diesel-icon';
+        break;
+      case 3:
+        res = 'gasoil-icon';
+        break;
+      case 4:
+        res = 'hybrid-icon';
+        break;    
+    }
+    return res;
+    
+  } 
 }

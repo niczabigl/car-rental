@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  goHome():void{
+    window.location.pathname="menu";
+  }
 }

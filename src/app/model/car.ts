@@ -14,7 +14,6 @@ export class Car {
   public maxKmsPerDay: number;
   public depositFee: number;
   public isAvailable: boolean;
-  
 
   constructor(maker: string, model: string, energyType: EnergyType, kms: number, pricePerDay: number, maxKmsPerDay: number, depositFee: number) {
     this.maker = maker;
@@ -30,5 +29,7 @@ export class Car {
   public blockCar(){
     this.isAvailable = false;
   }
+
+  
 
 }
