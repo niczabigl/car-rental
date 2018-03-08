@@ -28,6 +28,7 @@ export class Car {
     this.setEnergyTypeIconClass();
   }
 
+
   public blockCar(){
     this.isAvailable = false;
   }

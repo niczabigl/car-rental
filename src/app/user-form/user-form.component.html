@@ -1,0 +1,46 @@
+<div class="container">
+  <mat-card>
+    <form class="user-form">
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Nº Cliente (disabled)" disabled value="{{User.idCounter}}">
+      </mat-form-field>
+
+      <table class="field-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="field-full-width">
+          <input matInput placeholder="Nombre">
+        </mat-form-field></td>
+        <td><mat-form-field class="field-full-width">
+          <input matInput placeholder="Apellido">
+        </mat-form-field></td>
+      </tr></table>
+
+      <p>
+        <mat-form-field class="field-full-width">
+          <textarea matInput placeholder="Observaciones"></textarea>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+          <textarea matInput placeholder="Dirección"></textarea>
+        </mat-form-field>
+      </p>
+
+      <table class="field-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="field-full-width">
+              <input matInput placeholder="Ciudad">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="field-full-width">
+            <input matInput #postalCode maxlength="5" placeholder="Codigo Postal" value="08001">
+            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <mat-card-actions>
+        <button (click)="doStuff()" mat-raised-button color="primary">Añadir</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

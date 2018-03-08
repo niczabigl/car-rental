@@ -1,8 +1,9 @@
 <div class="buton-container">
   <button (click)="getAllCars()" mat-raised-button color="primary">Todos los coches</button>
   <button (click)="getAllAvailableCars()" mat-raised-button color="primary">Todos los coches Disponibles</button>
+  <button (click)="showCarForm()" mat-raised-button color="primary">Añadir nuevo coche</button>
 </div>
-<div class="container">
+<div *ngIf="cars" class="container">
     <div *ngFor="let car of cars">
       <div [class]="{selected : isCarSelected == true }">
         <mat-card>
@@ -37,6 +38,7 @@
     </div> 
 </div>
 <app-car-detail *ngIf="isSelectedCar" [car]="selectedCar"></app-car-detail>
+<app-car-form *ngIf="isNewCar"></app-car-form>
 <div class="buton-container">
-  <button routerLink="/new-car" mat-raised-button color="primary">Añadir nuevo coche</button>
+  
 </div>

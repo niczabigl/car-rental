@@ -7,3 +7,78 @@
     padding: 0 16px;
     position: absolute;
 }
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 10px; 
+}
+.buton-container{
+    margin: 20px;
+}
+
+.seat{
+    background : url('/assets/img/seat-icon.png') no-repeat;
+    background-size: cover;
+    min-width: 100px; 
+    min-height: 100px;
+} 
+.mercedes{
+    background : url('/assets/img/mercedes-icon.png') no-repeat;
+    background-size: cover;
+    min-width: 100px; 
+    min-height: 100px;
+}
+.audi{
+    background : url('/assets/img/audi-icon.png') no-repeat;
+    background-size: cover;
+    min-width: 100px; 
+    min-height: 100px;
+}
+.vw{
+    background : url('/assets/img/vw-icon.png') no-repeat;
+    background-size: cover;
+    min-width: 100px; 
+    min-height: 100px;
+}
+.peugeot{
+    background : url('/assets/img/peugeot-icon.png') no-repeat;
+    background-size: cover;
+    min-width: 100px; 
+    min-height: 100px;
+}
+
+.gas-icon{
+    background : url('/assets/img/gas-icon.png') no-repeat;
+    background-size: cover;
+    min-width: 30px; 
+    min-height: 30px;
+}
+.gasoil-icon{
+    background : url('/assets/img/gasoil-icon.png') no-repeat;
+    background-size: cover;
+    min-width: 30px; 
+    min-height: 30px;
+}
+.diesel-icon{
+    background : url('/assets/img/diesel-icon.png') no-repeat;
+    background-size: cover;
+    min-width: 30px; 
+    min-height: 30px;
+}
+.hybrid-icon{
+    background : url('/assets/img/hybrid-icon.png') no-repeat;
+    background-size: cover;
+    min-width: 30px; 
+    min-height: 30px;
+}
+.user-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.field-full-width {
+  width: 100%;
+}

@@ -7,6 +7,10 @@ import { MatListModule } from '@angular/material/list';
 import { FlexLayoutModule } from '@angular/flex-layout/';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
+
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
@@ -18,6 +22,10 @@ import { UserComponent } from './user/user.component';
 import { RentalComponent } from './rental/rental.component';
 import { CarService } from './services/car.service';
 import { CarDetailComponent } from './car-detail/car-detail.component';
+import { UserService } from './services/user.service';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import { CarFormComponent } from './car-form/car-form.component';
+import { UserFormComponent } from './user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +34,10 @@ import { CarDetailComponent } from './car-detail/car-detail.component';
     CarComponent,
     UserComponent,
     RentalComponent,
-    CarDetailComponent
+    CarDetailComponent,
+    UserDetailComponent,
+    CarFormComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +47,14 @@ import { CarDetailComponent } from './car-detail/car-detail.component';
     FlexLayoutModule,
     MatListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule
   ],
-  providers: [CarService],
+  providers: [
+    CarService,
+    UserService,
+    ErrorStateMatcher
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
