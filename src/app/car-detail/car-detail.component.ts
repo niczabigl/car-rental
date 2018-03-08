@@ -7,10 +7,9 @@ import { Car, EnergyType } from '../model/car';
   styleUrls: ['./car-detail.component.css']
 })
 
-@Input() car : Car;
-
 export class CarDetailComponent implements OnInit {
-
+  
+  @Input() car : Car;
   
   constructor() { }
 

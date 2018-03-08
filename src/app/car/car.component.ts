@@ -11,6 +11,9 @@ export class CarComponent implements OnInit {
 
   cars: Car[];
 
+  selectedCar : Car;
+  isSelectedCar : boolean;
+
   constructor(private carService: CarService) { }
   
   ngOnInit() {
@@ -23,26 +26,12 @@ export class CarComponent implements OnInit {
   getAllAvailableCars():void{
     this.carService.getAvailableCarsOnly().subscribe(cars => this.cars = cars); 
   }
-  
-  getEnergyTypeIcon(energy : EnergyType) : string {
-    
-    var res;
 
-    switch(energy){
-      case 1:
-        res = 'gas-icon';
-        break;
-      case 2:
-        res = 'diesel-icon';
-        break;
-      case 3:
-        res = 'gasoil-icon';
-        break;
-      case 4:
-        res = 'hybrid-icon';
-        break;    
+  showCarDetail(car: Car):void {
+    this.selectedCar = car;
+    if (this.selectedCar != null){
+      this.isSelectedCar = true;
     }
-    return res;
-    
-  } 
+  }
+
 }

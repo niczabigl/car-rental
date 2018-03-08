@@ -14,6 +14,7 @@ export class Car {
   public maxKmsPerDay: number;
   public depositFee: number;
   public isAvailable: boolean;
+  public energyTypeIconClass: string;
 
   constructor(maker: string, model: string, energyType: EnergyType, kms: number, pricePerDay: number, maxKmsPerDay: number, depositFee: number) {
     this.maker = maker;
@@ -24,10 +25,28 @@ export class Car {
     this.maxKmsPerDay = maxKmsPerDay;
     this.depositFee = depositFee;
     this.isAvailable = true;
+    this.setEnergyTypeIconClass();
   }
 
   public blockCar(){
     this.isAvailable = false;
+  }
+
+  public setEnergyTypeIconClass():void{
+    switch(this.energyType){
+      case 1:
+        this.energyTypeIconClass = 'gas-icon';
+        break;
+      case 2:
+        this.energyTypeIconClass = 'diesel-icon';
+        break;
+      case 3:
+        this.energyTypeIconClass = 'gasoil-icon';
+        break;
+      case 0:
+        this.energyTypeIconClass = 'hybrid-icon';
+        break;    
+    }
   }
 
   

@@ -2,45 +2,64 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-bottom: 10px; 
 }
 .buton-container{
     margin: 20px;
 }
 
-.brand-seat{
-    background-image: url('http://simpleicon.com/wp-content/uploads/user1.png');
+.seat{
+    background : url('/assets/img/seat-icon.png') no-repeat;
     background-size: cover;
+    min-width: 100px; 
+    min-height: 100px;
 } 
-.brand-mercedes{
-    background-image: url('http://simpleicon.com/wp-content/uploads/user1.png');
+.mercedes{
+    background : url('/assets/img/mercedes-icon.png') no-repeat;
     background-size: cover;
+    min-width: 100px; 
+    min-height: 100px;
 }
-.brand-audi{
-    background-image: url('http://simpleicon.com/wp-content/uploads/user1.png');
+.audi{
+    background : url('/assets/img/audi-icon.png') no-repeat;
     background-size: cover;
+    min-width: 100px; 
+    min-height: 100px;
 }
-.brand-vw{
-    background-image: url('http://simpleicon.com/wp-content/uploads/user1.png');
+.vw{
+    background : url('/assets/img/vw-icon.png') no-repeat;
     background-size: cover;
+    min-width: 100px; 
+    min-height: 100px;
 }
-.brand-peugeot{
-    background-image: url('https://d12ylu6pqf4csx.cloudfront.net/assets/logos/peugeot-103dd17e2a04653221548da69e350705c65a5b67edc5ebc00f060f48b4ea03bd.svg');
+.peugeot{
+    background : url('/assets/img/peugeot-icon.png') no-repeat;
     background-size: cover;
+    min-width: 100px; 
+    min-height: 100px;
 }
 
 .gas-icon{
-    background-image: url('/Users/alumno/App/car-rental/src/assets/img/gas-icon.png');
+    background : url('/assets/img/gas-icon.png') no-repeat;
     background-size: cover;
+    min-width: 30px; 
+    min-height: 30px;
 }
 .gasoil-icon{
-    background-image: url('/Users/alumno/App/car-rental/src/assets/img/gasoil-icon.png');
+    background : url('/assets/img/gasoil-icon.png') no-repeat;
     background-size: cover;
+    min-width: 30px; 
+    min-height: 30px;
 }
 .diesel-icon{
-    background-image: url('/Users/alumno/App/car-rental/src/assets/img/diesel-icon.png');
+    background : url('/assets/img/diesel-icon.png') no-repeat;
     background-size: cover;
+    min-width: 30px; 
+    min-height: 30px;
 }
 .hybrid-icon{
-    background-image: url('/Users/alumno/App/car-rental/src/assets/img/hybrid-icon.png');
+    background : url('/assets/img/hybrid-icon.png') no-repeat;
     background-size: cover;
+    min-width: 30px; 
+    min-height: 30px;
 }

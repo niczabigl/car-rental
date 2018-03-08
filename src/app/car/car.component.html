@@ -4,32 +4,39 @@
 </div>
 <div class="container">
     <div *ngFor="let car of cars">
-      <div *ngIf="car.isAvailable">
-    <mat-card>
-      <mat-card-header>
-        <img [ngClass]="getEnergyTypeIcon(car.EnergyType)">
-      </mat-card-header>
-      <mat-card-title>	{{car.model}} </mat-card-title>
-      <mat-card-subtitle> -------------------- </mat-card-subtitle>
-      <mat-card-content>	
-        <div>
-          <ul style="list-style:none; padding:0px">
-            <li>Combustible : {{car.energyType}}</li>
-            <li>Kilometros : {{car.kms}}</li>
-            <li>Precio/dia : {{car.pricePerDay}}</li>
-            <li>Maximo km/dia : {{car.maxKmsPerDay}}</li>
-            <li>Deposito : {{car.depositFee}}</li>
-          </ul>
-        </div>    
-      </mat-card-content>
-      <img mat-card-image src="">
-      <mat-card-actions><button routerLink="/car-detail" mat-raised-button color="primary"> Ver coche..</button></mat-card-actions>
-      <mat-card-footer></mat-card-footer>
-    </mat-card>
-    	</div>
+      <div [class]="{selected : isCarSelected == true }">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              <div class="container">
+                <div [class]="(car.maker).toLowerCase()"></div>	
+                <h2>{{car.model}}</h2>
+              </div>
+              <img [class]="car.energyTypeIconClass">
+            </mat-card-title>
+          </mat-card-header>
+          
+          
+          <!-- <mat-card-subtitle> -------------------- </mat-card-subtitle>
+          <mat-card-content>	
+            <div>
+              <ul style="list-style:none; padding:0px">
+                <li>Combustible : {{car.energyType}}</li>
+                <li>Kilometros : {{car.kms}}</li>
+                <li>Precio/dia : {{car.pricePerDay}}</li>
+                <li>Maximo km/dia : {{car.maxKmsPerDay}}</li>
+                <li>Deposito : {{car.depositFee}}</li>
+              </ul>
+            </div>    
+          </mat-card-content>
+          <img mat-card-image src=""> -->
+          <mat-card-actions><button (click)="showCarDetail(car)" mat-raised-button color="primary"> Ver Detalles </button></mat-card-actions>
+          <mat-card-footer></mat-card-footer>
+        </mat-card>
+      </div>
     </div> 
 </div>
-<app-car-detail [car]="selectedCar"></app-car-detail>
+<app-car-detail *ngIf="isSelectedCar" [car]="selectedCar"></app-car-detail>
 <div class="buton-container">
   <button routerLink="/new-car" mat-raised-button color="primary">Añadir nuevo coche</button>
 </div>
