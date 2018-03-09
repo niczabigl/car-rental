@@ -2,45 +2,55 @@
   <mat-card>
     <form class="user-form">
       <mat-form-field class="field-full-width">
-        <input matInput placeholder="Nº Cliente (disabled)" disabled value="{{User.idCounter}}">
+        <input matInput #idCounter placeholder="Nº Cliente (disabled)" disabled value="">
       </mat-form-field>
 
       <table class="field-full-width" cellspacing="0"><tr>
         <td><mat-form-field class="field-full-width">
-          <input matInput placeholder="Nombre">
+          <input matInput #name placeholder="Nombre">
         </mat-form-field></td>
         <td><mat-form-field class="field-full-width">
-          <input matInput placeholder="Apellido">
+          <input matInput #lastName placeholder="Apellido">
         </mat-form-field></td>
-      </tr></table>
-
-      <p>
-        <mat-form-field class="field-full-width">
-          <textarea matInput placeholder="Observaciones"></textarea>
-        </mat-form-field>
-        <mat-form-field class="field-full-width">
-          <textarea matInput placeholder="Dirección"></textarea>
-        </mat-form-field>
-      </p>
-
+      </tr>
+      </table>
+      <table class="field-full-width" cellspacing="0">
+        <tr>
+          <td>
+              <mat-form-field class="field-full-width">
+                <textarea matInput #birthDate placeholder="Fecha Nacimiento"></textarea>
+              </mat-form-field>
+          </td>
+          <td>
+              <mat-form-field class="field-full-width">
+                <textarea matInput #address placeholder="Dirección"></textarea>
+              </mat-form-field>
+          </td>
+        </tr>
+      </table>
       <table class="field-full-width" cellspacing="0">
         <tr>
           <td>
             <mat-form-field class="field-full-width">
-              <input matInput placeholder="Ciudad">
+              <input matInput #city placeholder="Ciudad">
             </mat-form-field>
           </td>
           <td>
             <mat-form-field class="field-full-width">
-            <input matInput #postalCode maxlength="5" placeholder="Codigo Postal" value="08001">
-            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+              <input matInput #postalCode maxlength="5" placeholder="Codigo Postal" value="08001">
+              <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
             </mat-form-field>
           </td>
         </tr>
       </table>
     </form>
+    <p>
+      <mat-form-field class="field-full-width">
+        <textarea matInput #observations placeholder="Observaciones"></textarea>
+      </mat-form-field>
+    </p>
     <mat-card-actions>
-        <button (click)="doStuff()" mat-raised-button color="primary">Añadir</button>
+        <button (click)="saveUser()" mat-raised-button color="primary">Añadir</button>
     </mat-card-actions>
   </mat-card>
 </div>

@@ -15,25 +15,63 @@ export class UserComponent implements OnInit {
   selectedUser : User;
   isSelectedUser : boolean;
   isNewUser : boolean;
+  showUsers : boolean;
+  showUserForm : boolean;
+  showUserDetail : boolean;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.getAllUsers().subscribe(users => this.users = users);
+    this.showUsers = false;
+    this.showUserForm = false;
+    this.isSelectedUser = false;
   }
 
   getAllUsers() : void{
-    this.userService.getAllUsers().subscribe(users => this.users = users);
+
+    if(this.showUsers == true){
+      this.showUsers = false;
+      this.isSelectedUser = false;
+    }else{
+      this.showUsers = true;
+    }
+    if(this.showUserForm == true){
+      this.showUserForm = false;
+    }
+    this.clearWindow();
   }
 
-  showUserDetail(user: User):void {
+  addUserForm() : void{
+
+    if(this.showUserForm == true){
+      this.showUserForm = false;
+    }else{
+      this.showUserForm = true;
+    } 
+    if (this.showUsers == true){
+      this.showUsers = false;
+      this.isSelectedUser = false;
+    }
+    this.clearWindow();
+  }
+
+  userDetail(user: User):void {
     this.selectedUser = user;
-    if (this.selectedUser != null){
+    if (this.isSelectedUser == true){
+      this.isSelectedUser = false;
+    }else{
       this.isSelectedUser = true;
     }
   }
-
-  showUserForm():void{
-    this.isNewUser = true;
+  
+  clearWindow():void{
+    if (this.showUsers == true){
+      this.showUserForm = false;
+    }
+    if (this.showUserForm == true){
+      this.showUsers = false;
+    }
   }
 
 }

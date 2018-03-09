@@ -12,9 +12,14 @@ import { ErrorStateMatcher } from '@angular/material/core';
 export class UserFormComponent implements OnInit {
 
   @Input() user : User;
+  
   constructor() { }
 
   ngOnInit() {
+  }
+
+  saveUser(){
+    
   }
 
 }
