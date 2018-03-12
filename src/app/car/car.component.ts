@@ -13,18 +13,46 @@ export class CarComponent implements OnInit {
   cars: Car[];
 
   selectedCar : Car;
-  newCar : Car;
 
+  isNewCar : Car;
   isSelectedCar : boolean;
-  isNewCar : boolean;
+  showCars : boolean;
+  showCarForm : boolean; 
 
   constructor(private carService: CarService) { }
   
   ngOnInit() {
-
+    this.carService.getAllCars().subscribe(cars => this.cars = cars); 
+    this.showCars = false;
+    this.showCarForm = false;
+    this.isSelectedCar = false;
   }
-  getAllCars():void{
-    this.carService.getAllCars().subscribe(cars => this.cars = cars);  
+
+  getAllCars():void {
+    if(this.showCars == true){
+      this.showCars = false;
+      this.isSelectedCar = false;
+    }else{
+      this.showCars = true;
+    }
+    if(this.showCarForm == true){
+      this.showCarForm = false;
+    }
+    this.clearWindow();
+  }
+
+  addCarsForm() : void {
+
+    if(this.showCarForm == true){
+      this.showCarForm = false;
+    }else{
+      this.showCarForm = true;
+    } 
+    if (this.showCars == true){
+      this.showCars = false;
+      this.isSelectedCar = false;
+    }
+    this.clearWindow();
   }
 
   getAllAvailableCars():void{
@@ -39,7 +67,16 @@ export class CarComponent implements OnInit {
   }
 
   addNewCar(car: Car):void{
-    this.newCar = car;
+    
+  }
+
+  clearWindow():void{
+    if (this.showCars == true){
+      this.showCarForm = false;
+    }
+    if (this.showCarForm == true){
+      this.showCars = false;
+    }
   }
 
 }

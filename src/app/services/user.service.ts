@@ -18,4 +18,8 @@ export class UserService {
   public getAllUsers(): Observable <User[]> {
     return of(this.USERS);
   }
+
+  public addNewUser(user : User): void{
+    this.USERS.push(user);
+  }
 }

@@ -1,3 +1,60 @@
-<p>
-  car-form works!
-</p>
+<div class="container">
+  <mat-card>
+    <form class="car-form">
+      <mat-form-field class="field-full-width">
+        <input matInput #idCounter placeholder="Nº Bastidor (disabled)" disabled value="">
+      </mat-form-field>
+
+      <table class="field-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="field-full-width">
+          <input matInput #maker placeholder="Fabricante">
+        </mat-form-field></td>
+        <td><mat-form-field class="field-full-width">
+          <input matInput #model placeholder="Modelo">
+        </mat-form-field></td>
+      </tr>
+      </table>
+      <table class="field-full-width" cellspacing="0">
+        <tr>
+          <td>
+              <mat-form-field class="field-full-width">
+                <input matInput #energyType placeholder="Combustible">
+              </mat-form-field>
+          </td>
+          <td>
+              <mat-form-field class="field-full-width">
+                <input matInput #kms placeholder="kms">
+              </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <table class="field-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="field-full-width">
+              <input matInput #pricePerDay placeholder="Precio por dia">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="field-full-width">
+              <input matInput #maxKmsPerDay placeholder="Máximo kilometros dia">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="field-full-width">
+              <input matInput #depositFee maxlength="5" placeholder="Fianza" value="">
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <p>
+        <mat-form-field class="field-full-width">
+          <textarea matInput #observations placeholder="Observaciones"></textarea>
+        </mat-form-field>
+      </p>
+      <mat-card-actions>
+          <button (click)="addUser()" mat-raised-button color="primary" >Añadir</button>
+      </mat-card-actions>
+    </form>  
+  </mat-card>
+</div>
