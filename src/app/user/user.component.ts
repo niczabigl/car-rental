@@ -74,4 +74,9 @@ export class UserComponent implements OnInit {
     }
   }
 
+  showUserFormEvent(b : boolean){
+    this.showUserForm = b;
+    this.showUsers = true;
+  }
+
 }

@@ -8,7 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout/';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroupDirective, NgForm, Validators, NgModel, FormsModule  } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 
 import { Observable } from 'rxjs/Observable';
@@ -48,7 +48,8 @@ import { UserFormComponent } from './user-form/user-form.component';
     MatListModule,
     MatCardModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule 
   ],
   providers: [
     CarService,

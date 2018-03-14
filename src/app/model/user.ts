@@ -1,6 +1,6 @@
 export class User {
 
-  public static idCounter : number;
+  public static idCounter : number = 0;
   public name: string;
   public lastName: string;
   public birthDate: Date;

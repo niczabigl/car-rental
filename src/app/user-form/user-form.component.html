@@ -1,29 +1,34 @@
 <div class="container">
   <mat-card>
-    <form class="user-form">
+    <form class="user-form" #userForm = "ngForm">
       <mat-form-field class="field-full-width">
         <input matInput #idCounter placeholder="Nº Cliente (disabled)" disabled value="">
       </mat-form-field>
 
       <table class="field-full-width" cellspacing="0"><tr>
         <td><mat-form-field class="field-full-width">
-          <input matInput #name placeholder="Nombre">
+          <input matInput [(ngModel)] = "user.name" name ="name" #name placeholder="Nombre">
         </mat-form-field></td>
         <td><mat-form-field class="field-full-width">
-          <input matInput #lastName placeholder="Apellido">
+          <input matInput [(ngModel)] = "user.lastName" name ="lastName"  #lastName placeholder="Apellido">
         </mat-form-field></td>
       </tr>
       </table>
+      <p>
+        <mat-form-field class="field-full-width">
+          <textarea matInput [(ngModel)] = "user.drivingLicense" name ="drivingLicense" #observations placeholder="Nº Permiso Conducir"></textarea>
+        </mat-form-field>
+      </p>
       <table class="field-full-width" cellspacing="0">
         <tr>
           <td>
               <mat-form-field class="field-full-width">
-                <textarea matInput #birthDate placeholder="Fecha Nacimiento"></textarea>
+                <textarea matInput [(ngModel)] = "user.birthDate" name ="birthDate" #birthDate placeholder="Fecha Nacimiento"></textarea>
               </mat-form-field>
           </td>
           <td>
               <mat-form-field class="field-full-width">
-                <textarea matInput #address placeholder="Dirección"></textarea>
+                <textarea matInput [(ngModel)] = "user.address" name ="address" #address placeholder="Dirección"></textarea>
               </mat-form-field>
           </td>
         </tr>
@@ -32,12 +37,12 @@
         <tr>
           <td>
             <mat-form-field class="field-full-width">
-              <input matInput #city placeholder="Ciudad">
+              <input matInput [(ngModel)] = "user.city" name ="city" #city placeholder="Ciudad">
             </mat-form-field>
           </td>
           <td>
             <mat-form-field class="field-full-width">
-              <input matInput #postalCode maxlength="5" placeholder="Codigo Postal" value="08001">
+              <input matInput [(ngModel)] = "user.postalCode" name ="postalCode" #postalCode maxlength="5" placeholder="Codigo Postal" value="08001">
               <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
             </mat-form-field>
           </td>
@@ -45,12 +50,12 @@
       </table>
       <p>
         <mat-form-field class="field-full-width">
-          <textarea matInput #observations placeholder="Observaciones"></textarea>
+          <textarea matInput [(ngModel)] = "user.observations" name ="observations" #observations placeholder="Observaciones"></textarea>
         </mat-form-field>
       </p>
-      <mat-card-actions>
-          <button (click)="addUser()" mat-raised-button color="primary" >Añadir</button>
-      </mat-card-actions>
-    </form>  
+    </form>
+    <mat-card-actions>
+          <button (click)="addUser(user)" mat-raised-button color="primary" >Añadir</button>
+    </mat-card-actions>
   </mat-card>
 </div>

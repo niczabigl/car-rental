@@ -23,7 +23,7 @@
     </div> 
 </div>
 <app-user-detail *ngIf="isSelectedUser" [user]="selectedUser"></app-user-detail>
-<app-user-form *ngIf="showUserForm"></app-user-form>
+<app-user-form *ngIf="showUserForm" [user]= "user"  (showUserForm)="showUserFormEvent($event)"></app-user-form>
 <div class="buton-container">
   
 </div>
