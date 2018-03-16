@@ -29,10 +29,14 @@ export class UserFormComponent implements OnInit {
   }
 
   addUser(user : User){
-    if(user.name==null||user.lastName==null||user.drivingLicense==null){
+    if(user.name==null||user.lastName==null||user.drivingLicense==null ){
       window.alert("Introduce los campos obligatorios");
     }else{
-      this.userService.addNewUser(user);
+      if (this.isNewUser==true){
+        this.userService.addNewUser(user);
+      }else{
+        this.userService.editUser(user.id,user);
+      }
       this.showUserForm.emit(false);
     }
   }

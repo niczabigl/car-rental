@@ -1,35 +1,40 @@
 <div class="container">
   <mat-card>
-    <form class="user-form" #userForm = "ngForm">
+    <form class="user-form" #userForm="ngForm">
       <mat-form-field class="field-full-width">
-        <input matInput [(ngModel)] = "user.id" name ="id" #idCounter placeholder="Nº Cliente (disabled)" disabled value="user.id">
+        <input matInput [(ngModel)]="user.id" name="id" #idCounter placeholder="Nº Cliente (disabled)" disabled value="user.id">
       </mat-form-field>
 
-      <table class="field-full-width" cellspacing="0"><tr>
-        <td><mat-form-field class="field-full-width">
-          <input matInput [(ngModel)] = "user.name" name ="name" #name placeholder="Nombre">
-        </mat-form-field></td>
-        <td><mat-form-field class="field-full-width">
-          <input matInput [(ngModel)] = "user.lastName" name ="lastName"  #lastName placeholder="Apellido">
-        </mat-form-field></td>
-      </tr>
+      <table class="field-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="field-full-width">
+              <input matInput [(ngModel)]="user.name" name="name" #name placeholder="Nombre">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="field-full-width">
+              <input matInput [(ngModel)]="user.lastName" name="lastName" #lastName placeholder="Apellido">
+            </mat-form-field>
+          </td>
+        </tr>
       </table>
       <p>
         <mat-form-field class="field-full-width">
-          <textarea matInput [(ngModel)] = "user.drivingLicense" name ="drivingLicense" #observations placeholder="Nº Permiso Conducir"></textarea>
+          <input matInput type="date" [(ngModel)]="user.birthDate " name="birthDate" #birthDate placeholder="Fecha Nacimiento">
         </mat-form-field>
       </p>
       <table class="field-full-width" cellspacing="0">
         <tr>
           <td>
-              <mat-form-field class="field-full-width">
-                <textarea matInput [(ngModel)] = "user.birthDate" name ="birthDate" #birthDate placeholder="Fecha Nacimiento"></textarea>
-              </mat-form-field>
+            <mat-form-field class="field-full-width">
+              <input matInput [(ngModel)]="user.drivingLicense" name="drivingLicense" #observations placeholder="Nº Permiso Conducir">
+            </mat-form-field>
           </td>
           <td>
-              <mat-form-field class="field-full-width">
-                <textarea matInput [(ngModel)] = "user.address" name ="address" #address placeholder="Dirección"></textarea>
-              </mat-form-field>
+            <mat-form-field class="field-full-width">
+              <input matInput [(ngModel)]="user.address" name="address" #address placeholder="Dirección">
+            </mat-form-field>
           </td>
         </tr>
       </table>
@@ -37,12 +42,12 @@
         <tr>
           <td>
             <mat-form-field class="field-full-width">
-              <input matInput [(ngModel)] = "user.city" name ="city" #city placeholder="Ciudad">
+              <input matInput [(ngModel)]="user.city" name="city" #city placeholder="Ciudad">
             </mat-form-field>
           </td>
           <td>
             <mat-form-field class="field-full-width">
-              <input matInput [(ngModel)] = "user.postalCode" name ="postalCode" #postalCode maxlength="5" placeholder="Codigo Postal" value="08001">
+              <input matInput [(ngModel)]="user.postalCode" name="postalCode" #postalCode maxlength="5" placeholder="Codigo Postal" value="08001">
               <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
             </mat-form-field>
           </td>
@@ -50,12 +55,12 @@
       </table>
       <p>
         <mat-form-field class="field-full-width">
-          <textarea matInput [(ngModel)] = "user.observations" name ="observations" #observations placeholder="Observaciones"></textarea>
+          <textarea matInput [(ngModel)]="user.observations" name="observations" #observations placeholder="Observaciones"></textarea>
         </mat-form-field>
       </p>
     </form>
     <mat-card-actions>
-          <button (click)="addUser(user)" mat-raised-button color="primary" >Guardar</button>
+      <button (click)="addUser(user)" mat-raised-button color="primary">Guardar</button>
     </mat-card-actions>
   </mat-card>
 </div>

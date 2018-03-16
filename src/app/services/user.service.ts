@@ -25,4 +25,7 @@ export class UserService {
   public addNewUser(user : User): void{
     this.USERS.push(user);
   }
+  public editUser(id : number, user : User){
+    this.USERS[id] = user;
+  }
 }
