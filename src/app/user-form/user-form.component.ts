@@ -14,14 +14,18 @@ import * as $ from 'jquery';
 export class UserFormComponent implements OnInit {
 
   @Input() user : User;
-
+  @Input() isNewUser : boolean;
   @Output() 
   showUserForm : EventEmitter<Boolean> = new EventEmitter<Boolean>();
+
+
 
   constructor(private userService :UserService) { }
 
   ngOnInit() {
-    this.user = new User(null,null,null,null,null,null,null,null);
+    if(this.isNewUser==true){
+      this.user = new User(null,null,null,null,null,null,null,null);
+    }
   }
 
   addUser(user : User){
@@ -29,8 +33,8 @@ export class UserFormComponent implements OnInit {
       window.alert("Introduce los campos obligatorios");
     }else{
       this.userService.addNewUser(user);
+      this.showUserForm.emit(false);
     }
-    this.showUserForm.emit(false);
   }
 
 }

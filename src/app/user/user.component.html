@@ -2,14 +2,15 @@
   <button (click)="getAllUsers()" mat-raised-button color="primary">Todos los Usuarios</button>
   <button (click)="addUserForm()" mat-raised-button color="primary">Añadir nuevo Usuario</button>
 </div>
-<div *ngIf="users && showUsers" class="container">
+<div *ngIf="users && showUsers" class="model-container">
     <div *ngFor="let user of users">
       <div [class]="{selected : isUserSelected == true }">
         <mat-card>
           <mat-card-header>
             <mat-card-title>
-              <div class="container">
-                <h2>{{user.name}} - {{user.lastName}}</h2>
+              <div class="data-container">
+                <h2>{{user.name}}</h2>
+                <p> {{user.lastName}}</p>
               </div>
               <img [class]="">
             </mat-card-title>
@@ -22,8 +23,8 @@
       </div>
     </div> 
 </div>
-<app-user-detail *ngIf="isSelectedUser" [user]="selectedUser"></app-user-detail>
-<app-user-form *ngIf="showUserForm" [user]= "user"  (showUserForm)="showUserFormEvent($event)"></app-user-form>
+<app-user-detail *ngIf="isSelectedUser" [user]="selectedUser" (userToForm)="editUserEvent($event)" (showUserForm)="showUserFormEvent($event)"></app-user-detail>
+<app-user-form *ngIf="showUserForm" (showUserForm)="showUserFormEvent($event)" [user]= "selectedUser" [isNewUser]="isNewUser"></app-user-form>
 <div class="buton-container">
   
 </div>

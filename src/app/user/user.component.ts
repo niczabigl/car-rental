@@ -13,6 +13,7 @@ export class UserComponent implements OnInit {
   users : User[];
 
   selectedUser : User;
+
   isSelectedUser : boolean;
   isNewUser : boolean;
   showUsers : boolean;
@@ -43,7 +44,7 @@ export class UserComponent implements OnInit {
   }
 
   addUserForm() : void{
-
+    this.isNewUser = true;
     if(this.showUserForm == true){
       this.showUserForm = false;
     }else{
@@ -57,8 +58,10 @@ export class UserComponent implements OnInit {
   }
 
   userDetail(user: User):void {
+    var auxUser = this.selectedUser;
     this.selectedUser = user;
-    if (this.isSelectedUser == true){
+
+    if (this.isSelectedUser == true && auxUser == user ){
       this.isSelectedUser = false;
     }else{
       this.isSelectedUser = true;
@@ -76,7 +79,12 @@ export class UserComponent implements OnInit {
 
   showUserFormEvent(b : boolean){
     this.showUserForm = b;
-    this.showUsers = true;
+    this.showUsers = false;
+    this.isSelectedUser = false;
   }
 
+  editUserEvent(user:User){
+    this.isNewUser = false;
+    this.selectedUser = user;
+  }
 }

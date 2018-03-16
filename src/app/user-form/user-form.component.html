@@ -2,7 +2,7 @@
   <mat-card>
     <form class="user-form" #userForm = "ngForm">
       <mat-form-field class="field-full-width">
-        <input matInput #idCounter placeholder="Nº Cliente (disabled)" disabled value="">
+        <input matInput [(ngModel)] = "user.id" name ="id" #idCounter placeholder="Nº Cliente (disabled)" disabled value="user.id">
       </mat-form-field>
 
       <table class="field-full-width" cellspacing="0"><tr>
@@ -55,7 +55,7 @@
       </p>
     </form>
     <mat-card-actions>
-          <button (click)="addUser(user)" mat-raised-button color="primary" >Añadir</button>
+          <button (click)="addUser(user)" mat-raised-button color="primary" >Guardar</button>
     </mat-card-actions>
   </mat-card>
 </div>
