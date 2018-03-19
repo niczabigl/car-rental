@@ -28,4 +28,12 @@ export class UserService {
   public editUser(id : number, user : User){
     this.USERS[id] = user;
   }
+  public deleteUser(id : number){
+    this.USERS.forEach(function(item, index, object) {
+      if (item.id === id) {
+        object.splice(index, 1);
+      }
+    });
+  }
+
 }

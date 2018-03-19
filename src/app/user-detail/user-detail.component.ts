@@ -15,14 +15,20 @@ export class UserDetailComponent implements OnInit {
   userToForm : EventEmitter<User> = new EventEmitter<User>();
   @Output()
   showUserForm : EventEmitter<Boolean> = new EventEmitter<Boolean>();
+  @Output()
+  showUserDetail : EventEmitter<Boolean> = new EventEmitter<Boolean>();
 
-  constructor( userService: UserService) { }
+  constructor( private userService: UserService) { }
   ngOnInit() {
   }
 
   editUser(user:User){
-    console.log("usuario"+user.id);
     this.userToForm.emit(user);
     this.showUserForm.emit(true);
+  }
+
+  deleteUser(id : number){
+    this.userService.deleteUser(id);
+    this.showUserDetail.emit(false);
   }
 }

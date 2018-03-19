@@ -87,4 +87,10 @@ export class UserComponent implements OnInit {
     this.isNewUser = false;
     this.selectedUser = user;
   }
+
+  deleteUserEvent(b : boolean){
+    this.selectedUser = null;
+    this.showUserDetail = b;
+    this.isSelectedUser = false;
+  }
 }

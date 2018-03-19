@@ -6,6 +6,8 @@ export enum EnergyType {
 }
 export class Car {
 
+  public static idCounter : number = 0;
+  public id : number;
   public maker: string;
   public model: string;
   public energyType: EnergyType;
@@ -26,6 +28,8 @@ export class Car {
     this.depositFee = depositFee;
     this.isAvailable = true;
     this.setEnergyTypeIconClass();
+    this.id = Car.idCounter;
+    Car.idCounter++;
   }
 
 
