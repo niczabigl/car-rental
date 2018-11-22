@@ -24,9 +24,9 @@
       </div>
     </div>
 </div>
-<app-car-detail *ngIf="isSelectedCar" [car]="selectedCar" (notification)="notificationEvent($event)" (lockCar)="lockCarEvent($event)"></app-car-detail>
+<app-car-detail *ngIf="isSelectedCar" [car]="selectedCar" (notification)="notificationEvent($event)" (lockCar)="lockCarEvent($event)" (deleteCarEvent)="deleteCarEvent($event)" (reloadCarList)="reloadCarListEvent($event)"></app-car-detail>
 <app-car-form *ngIf="showCarForm"></app-car-form>
 <div class="buton-container">
   
 </div>
-<app-notifications [notification]="message"></app-notifications>
+<app-notifications *ngIf="showNotification" [notification]="notification"></app-notifications>

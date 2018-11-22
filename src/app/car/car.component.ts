@@ -16,17 +16,21 @@ export class CarComponent implements OnInit {
   selectedCar : Car;
 
   isNewCar : boolean;
+
   isSelectedCar : boolean;
   showCars : boolean;
   showAvaliableCars: boolean;
   showCarForm : boolean; 
   showCarDetail : boolean;
 
+  showNotification : boolean;
+  notification : string;
+
   constructor(private carService: CarService) { }
   
   ngOnInit() {
     this.carService.getAllCars().subscribe((data : Car[]) =>
-    function(data){
+    {
       this.cars = data;
       this.carService.setCARS(data);
     //this.carService.getAvaliableCarsOnly().subscribe(avaliableCars => this.avaliableCars = avaliableCars);
@@ -96,7 +100,8 @@ export class CarComponent implements OnInit {
   }
 
   notificationEvent(message : any){
-    console.log(message.context.entity);
+    this.showNotification = true;
+    this.notification = message;
   }
 
   private refreshAvaliableCars(): void{
@@ -104,6 +109,15 @@ export class CarComponent implements OnInit {
       if (!item.isAvailable){
         object.splice(index, 1);
       }
+    });
+  }
+
+  reloadCarListEvent(): void{
+    this.carService.getAllCars().subscribe((data : Car[]) =>
+    {
+      this.cars = data;
+      this.carService.setCARS(data);
+    //this.carService.getAvaliableCarsOnly().subscribe(avaliableCars => this.avaliableCars = avaliableCars);
     });
   }
 

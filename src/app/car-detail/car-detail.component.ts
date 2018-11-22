@@ -18,6 +18,12 @@ export class CarDetailComponent implements OnInit {
   @Output()
   notification : EventEmitter<string> = new EventEmitter<string>(); 
 
+  @Output()
+  deleteCarEvent : EventEmitter<boolean> = new EventEmitter<boolean>(); 
+
+  @Output()
+  reloadCarList : EventEmitter<boolean> = new EventEmitter<boolean>(); 
+
   constructor(private carService : CarService) { }
 
   ngOnInit() {
@@ -29,12 +35,10 @@ export class CarDetailComponent implements OnInit {
 
   deleteCar(car : Car){
     this.carService.delete(car.id).subscribe(
-      (data : any) => this.notification.emit(data)
-      // function(data : any){
-      //   console.log(JSON.stringify(data.context));
-      //   this.notification.emit(data.context);
-      //   window.location.pathname="cars";
-      // });
-      );
+      (data : any) => {
+        this.notification.emit(data.context.entity);
+        this.deleteCarEvent.emit(false);
+        this.reloadCarList.emit();
+      });
   }
 }

@@ -14,11 +14,14 @@ export class NotificationsComponent implements OnInit {
   constructor(public snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    
+    if(this.notification){
+      this.showNotification(this.notification);
+    }
   }
 
-  showNotification(){
-    this.snackBar.openFromComponent(SnackComponent, {
+  showNotification(message : string){
+    this.notification = message;
+    this.snackBar.open(this.notification,"",{
       duration: 500
     });
   }
@@ -29,7 +32,6 @@ export class NotificationsComponent implements OnInit {
   templateUrl: './snack-notification.html',
   styleUrls: ['./notifications.component.css']
 })
-export class SnackComponent extends NotificationsComponent{
-  @Input()
-  notification : string;
+export class SnackComponent{
+
 }

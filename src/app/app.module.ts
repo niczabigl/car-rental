@@ -65,6 +65,9 @@ import { SnackComponent } from './notifications/notifications.component';
     UserService,
     ErrorStateMatcher
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    SnackComponent
+  ]
 })
 export class AppModule { }
