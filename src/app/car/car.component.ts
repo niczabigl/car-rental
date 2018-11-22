@@ -18,59 +18,36 @@ export class CarComponent implements OnInit {
   isNewCar : boolean;
   isSelectedCar : boolean;
   showCars : boolean;
+  showAvaliableCars: boolean;
   showCarForm : boolean; 
   showCarDetail : boolean;
 
   constructor(private carService: CarService) { }
   
   ngOnInit() {
-    this.carService.getAllCars().subscribe(cars => this.cars = cars);
-    this.carService.getAvaliableCarsOnly().subscribe(cars => this.avaliableCars = cars);
-    this.showCars = false;
-    this.showCarForm = false;
-    this.isSelectedCar = false;
-  }
-
-  getAllCars() : void{
-
-    if(this.showCars == true){
-      this.showCars = false;
-      this.isSelectedCar = false;
-    }else{
-      this.showCars = true;
-    }
-    if(this.showCarForm == true){
-      this.showCarForm = false;
-    }
+    this.carService.getAllCars().subscribe((data : Car[]) =>
+    function(data){
+      this.cars = data;
+      this.carService.setCARS(data);
+    //this.carService.getAvaliableCarsOnly().subscribe(avaliableCars => this.avaliableCars = avaliableCars);
+    });
     this.clearWindow();
   }
 
-  getAllAvaliableCars() : void {
-    
-    if(this.showCars == true){
-      this.showCars = false;
-      this.isSelectedCar = false;
-    }else{
-      this.showCars = true;
-    }
-    if(this.showCarForm == true){
-      this.showCarForm = false;
-    }
+  showAllCars() : void{
     this.clearWindow();
+    this.showCars = true;
+  }
+
+  showAllAvaliableCars() : void {
+    this.clearWindow();
+    this.showAvaliableCars = true;
   }
   
   addCarForm() : void{
-    this.isNewCar = true;
-    if(this.showCarForm == true){
-      this.showCarForm = false;
-    }else{
-      this.showCarForm = true;
-    } 
-    if (this.showCars == true){
-      this.showCars = false;
-      this.isSelectedCar = false;
-    }
     this.clearWindow();
+    this.isNewCar = true;
+    this.showCarForm = true;    
   }
 
   carDetail(car: Car):void {
@@ -85,12 +62,11 @@ export class CarComponent implements OnInit {
   }
   
   clearWindow():void{
-    if (this.showCars == true){
-      this.showCarForm = false;
-    }
-    if (this.showCarForm == true){
-      this.showCars = false;
-    }
+    this.showCarForm = false;
+    this.showCars = false;
+    this.showAvaliableCars = false;
+    this.showCarDetail = false;
+    this.isSelectedCar = false;
   }
 
   showCarFormEvent(b : boolean){
@@ -117,6 +93,10 @@ export class CarComponent implements OnInit {
       }
     });
     this.refreshAvaliableCars()
+  }
+
+  notificationEvent(message : any){
+    console.log(message.context.entity);
   }
 
   private refreshAvaliableCars(): void{

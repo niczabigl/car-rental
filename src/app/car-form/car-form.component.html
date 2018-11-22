@@ -1,30 +1,23 @@
 <div class="container">
   <mat-card>
-    <form class="car-form">
+    <form class="car-form" [formGroup]="car">
       <mat-form-field class="field-full-width">
-        <input matInput #idCounter placeholder="Nº Bastidor (disabled)" disabled value="">
+        <input matInput placeholder="Nº Bastidor" disabled value="">
       </mat-form-field>
-
-      <table class="field-full-width" cellspacing="0"><tr>
-        <td><mat-form-field class="field-full-width">
-          <input matInput #maker placeholder="Fabricante">
-        </mat-form-field></td>
-        <td><mat-form-field class="field-full-width">
-          <input matInput #model placeholder="Modelo">
-        </mat-form-field></td>
-      </tr>
-      </table>
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="id" disabled formControlName="id">
+      </mat-form-field>
       <table class="field-full-width" cellspacing="0">
         <tr>
           <td>
-              <mat-form-field class="field-full-width">
-                <input matInput #energyType placeholder="Combustible">
-              </mat-form-field>
+            <mat-form-field class="field-full-width">
+              <input matInput placeholder="Fabricante" formControlName="maker">
+            </mat-form-field>
           </td>
           <td>
-              <mat-form-field class="field-full-width">
-                <input matInput #kms placeholder="kms">
-              </mat-form-field>
+            <mat-form-field class="field-full-width">
+              <input matInput placeholder="Modelo" formControlName="model">
+            </mat-form-field>
           </td>
         </tr>
       </table>
@@ -32,29 +25,43 @@
         <tr>
           <td>
             <mat-form-field class="field-full-width">
-              <input matInput #pricePerDay placeholder="Precio por dia">
+              <input matInput placeholder="Combustible" formControlName="energyType">
             </mat-form-field>
           </td>
           <td>
             <mat-form-field class="field-full-width">
-              <input matInput #maxKmsPerDay placeholder="Máximo kilometros dia">
+              <input matInput placeholder="kms" formControlName="kms">
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <table class="field-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="field-full-width">
+              <input matInput placeholder="Precio por dia" formControlName="pricePerDay">
             </mat-form-field>
           </td>
           <td>
             <mat-form-field class="field-full-width">
-              <input matInput #depositFee maxlength="5" placeholder="Fianza" value="">
+              <input matInput placeholder="Máximo kilometros dia" formControlName="maxKmsPerDay">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="field-full-width">
+              <input matInput placeholder="Fianza" maxlength="5" value="" formControlName="depositFee">
             </mat-form-field>
           </td>
         </tr>
       </table>
       <p>
         <mat-form-field class="field-full-width">
-          <textarea matInput #observations placeholder="Observaciones"></textarea>
+          <textarea matInput placeholder="Observaciones" formControlName="observations"></textarea>
         </mat-form-field>
       </p>
       <mat-card-actions>
-          <button (click)="addUser()" mat-raised-button color="primary" >Añadir</button>
+        <button (click)="addCar()" mat-raised-button color="primary">Añadir</button>
       </mat-card-actions>
-    </form>  
+    </form>
   </mat-card>
 </div>

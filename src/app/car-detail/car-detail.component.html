@@ -22,7 +22,7 @@
     <mat-card-actions>
         <button (click)="setLockCar(car.id)" mat-raised-button color="primary">Bloquear</button>
         <button (click)="doStuff()" mat-raised-button color="primary">Modificar</button>
-        <button (click)="doStuff()" mat-raised-button color="primary">Eliminar</button>
+        <button (click)="deleteCar(car)" (notification)="notificationEvent($event)" mat-raised-button color="primary">Eliminar</button>
     </mat-card-actions>
     <mat-card-footer></mat-card-footer>
   </mat-card>

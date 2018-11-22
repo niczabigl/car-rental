@@ -1,9 +1,9 @@
 <div class="buton-container">
-  <button (click)="getAllCars()" mat-raised-button color="primary">Todos los coches</button>
-  <button (click)="getAllAvaliableCars()" mat-raised-button color="primary">Todos los coches Disponibles</button>
+  <button (click)="showAllCars()" mat-raised-button color="primary">Todos los coches</button>
+  <button (click)="showAllAvaliableCars()" mat-raised-button color="primary">Todos los coches Disponibles</button>
   <button (click)="addCarForm()" mat-raised-button color="primary">Añadir nuevo coche</button>
 </div>
-<div *ngIf="cars && showCars" class="container">
+<div *ngIf="(cars && showCars)" class="container">
     <div *ngFor="let car of cars">
       <div [class]="{selected : isCarSelected == true }">
         <mat-card>
@@ -22,10 +22,11 @@
           <mat-card-footer></mat-card-footer>
         </mat-card>
       </div>
-    </div> 
+    </div>
 </div>
-<app-car-detail *ngIf="isSelectedCar" [car]="selectedCar" (lockCar)="lockCarEvent($event)"></app-car-detail>
+<app-car-detail *ngIf="isSelectedCar" [car]="selectedCar" (notification)="notificationEvent($event)" (lockCar)="lockCarEvent($event)"></app-car-detail>
 <app-car-form *ngIf="showCarForm"></app-car-form>
 <div class="buton-container">
   
 </div>
+<app-notifications [notification]="message"></app-notifications>

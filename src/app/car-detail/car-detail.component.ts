@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Car, EnergyType } from '../model/car';
+import { CarService } from '../services/car.service';
 
 @Component({
   selector: 'app-car-detail',
@@ -14,7 +15,10 @@ export class CarDetailComponent implements OnInit {
   @Output()
   lockCar : EventEmitter<number> = new EventEmitter<number>();
 
-  constructor() { }
+  @Output()
+  notification : EventEmitter<string> = new EventEmitter<string>(); 
+
+  constructor(private carService : CarService) { }
 
   ngOnInit() {
   }
@@ -23,4 +27,14 @@ export class CarDetailComponent implements OnInit {
     this.lockCar.emit(id);
   }
 
+  deleteCar(car : Car){
+    this.carService.delete(car.id).subscribe(
+      (data : any) => this.notification.emit(data)
+      // function(data : any){
+      //   console.log(JSON.stringify(data.context));
+      //   this.notification.emit(data.context);
+      //   window.location.pathname="cars";
+      // });
+      );
+  }
 }

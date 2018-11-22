@@ -1,8 +1,8 @@
 export enum EnergyType {
-    Gas = 1 ,
-    Diesel = 2,
-    Electric = 3,
-    Hybrid = 0
+    Gas = "Gasolina" ,
+    Diesel = "Diesel",
+    Electric = "Electrico",
+    Hybrid = "Hibrido"
 }
 export class Car {
 
@@ -16,9 +16,10 @@ export class Car {
   public maxKmsPerDay: number;
   public depositFee: number;
   public isAvailable: boolean;
+  public observations : string
   public energyTypeIconClass: string;
 
-  constructor(maker: string, model: string, energyType: EnergyType, kms: number, pricePerDay: number, maxKmsPerDay: number, depositFee: number) {
+  constructor(maker: string, model: string, energyType: EnergyType, kms: number, pricePerDay: number, maxKmsPerDay: number, depositFee: number, observations : string) {
     this.maker = maker;
     this.model = model;
     this.energyType = energyType;
@@ -27,11 +28,11 @@ export class Car {
     this.maxKmsPerDay = maxKmsPerDay;
     this.depositFee = depositFee;
     this.isAvailable = true;
+    this.observations = observations;
     this.setEnergyTypeIconClass();
     this.id = Car.idCounter;
     Car.idCounter++;
   }
-
 
   public blockCar(){
     this.isAvailable = false;
@@ -39,16 +40,16 @@ export class Car {
 
   public setEnergyTypeIconClass():void{
     switch(this.energyType){
-      case 1:
+      case "Gasolina":
         this.energyTypeIconClass = 'gas-icon';
         break;
-      case 2:
+      case "Diesel":
         this.energyTypeIconClass = 'diesel-icon';
         break;
-      case 3:
+      case "Electrico":
         this.energyTypeIconClass = 'gasoil-icon';
         break;
-      case 0:
+      case "Hibrido":
         this.energyTypeIconClass = 'hybrid-icon';
         break;    
     }
