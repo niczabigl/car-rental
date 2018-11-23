@@ -24,9 +24,17 @@
       </div>
     </div>
 </div>
-<app-car-detail *ngIf="isSelectedCar" [car]="selectedCar" (notification)="notificationEvent($event)" (lockCar)="lockCarEvent($event)" (deleteCarEvent)="deleteCarEvent($event)" (reloadCarList)="reloadCarListEvent($event)"></app-car-detail>
-<app-car-form *ngIf="showCarForm"></app-car-form>
+<app-car-detail *ngIf="isSelectedCar" [car]="selectedCar" 
+  (notification)="notificationEvent($event)" 
+  (lockCar)="lockCarEvent($event)" 
+  (deleteCarEvent)="deleteCarEvent($event)" 
+  (reloadCarList)="reloadCarListEvent($event)">
+</app-car-detail>
+<app-car-form *ngIf="showCarForm"
+  (addCarEvent)="addCarEvent($event)"
+  (notification)="notificationEvent($event)">
+</app-car-form>
 <div class="buton-container">
   
 </div>
-<app-notifications *ngIf="showNotification" [notification]="notification"></app-notifications>
+<app-notifications [notification]="notification" ></app-notifications>

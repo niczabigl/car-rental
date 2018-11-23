@@ -1,8 +1,8 @@
 export enum EnergyType {
-    Gas = "Gasolina" ,
-    Diesel = "Diesel",
-    Electric = "Electrico",
-    Hybrid = "Hibrido"
+    Gas = "GASOLINA" ,
+    Diesel = "DIESEL",
+    Electric = "ELECTRICO",
+    Hybrid = "HIBRIDO"
 }
 export class Car {
 
@@ -40,16 +40,16 @@ export class Car {
 
   public setEnergyTypeIconClass():void{
     switch(this.energyType){
-      case "Gasolina":
+      case "GASOLINA":
         this.energyTypeIconClass = 'gas-icon';
         break;
-      case "Diesel":
+      case "DIESEL":
         this.energyTypeIconClass = 'diesel-icon';
         break;
-      case "Electrico":
+      case "ELECTRICO":
         this.energyTypeIconClass = 'gasoil-icon';
         break;
-      case "Hibrido":
+      case "HIBRIDO":
         this.energyTypeIconClass = 'hybrid-icon';
         break;    
     }

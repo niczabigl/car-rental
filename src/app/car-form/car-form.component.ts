@@ -12,7 +12,12 @@ import { FormControl, FormGroupDirective, NgForm, Validators, NgModel, FormsModu
 export class CarFormComponent implements OnInit {
 
   car : FormGroup;
-  notification : String;
+
+  @Output()
+  notification : EventEmitter<string> = new EventEmitter<string>(); 
+
+  @Output()
+  addCarEvent : EventEmitter<boolean> = new EventEmitter<boolean>(); 
 
   @Input() idCounter : number;
   
@@ -37,9 +42,10 @@ export class CarFormComponent implements OnInit {
     if(this.car.valid){
       console.log("this.car.value: "+ JSON.stringify(this.car.value));
       this.carService.insert(this.car.value).subscribe(
-        (data: String) => this.notification = data
-      );
-      window.location.pathname="cars";
+        (data: any) => {
+          this.notification.emit(data.context.entity);
+          this.addCarEvent.emit();
+        });
     }
   }
 }

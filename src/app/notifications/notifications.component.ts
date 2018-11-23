@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 
 @Component({
@@ -8,22 +8,26 @@ import { MatSnackBar } from '@angular/material';
 })
 export class NotificationsComponent implements OnInit {
 
+  constructor(public snackBar: MatSnackBar) {
+  }
+
+  ngOnInit() {
+
+  }
+
   @Input()
   notification : string;
 
-  constructor(public snackBar: MatSnackBar) { }
-
-  ngOnInit() {
-    if(this.notification){
-      this.showNotification(this.notification);
+  showNotification(message : string){
+    if((message != undefined || message != null) && message.length>0){
+      setTimeout(() => this.snackBar.open(message,"",{
+        duration: 1500
+      }));
     }
   }
 
-  showNotification(message : string){
-    this.notification = message;
-    this.snackBar.open(this.notification,"",{
-      duration: 500
-    });
+  ngOnChanges(changes: SimpleChanges) {
+    this.showNotification(changes.notification.currentValue);
   }
 }
 

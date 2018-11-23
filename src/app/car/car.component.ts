@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Input, Output, Component, OnInit,EventEmitter } from '@angular/core';
 import { Car, EnergyType } from '../model/car';
 import { CarService } from '../services/car.service';
 import * as $ from 'jquery';
@@ -23,7 +23,6 @@ export class CarComponent implements OnInit {
   showCarForm : boolean; 
   showCarDetail : boolean;
 
-  showNotification : boolean;
   notification : string;
 
   constructor(private carService: CarService) { }
@@ -88,6 +87,7 @@ export class CarComponent implements OnInit {
     this.selectedCar = null;
     this.showCarDetail = b;
     this.isSelectedCar = false;
+
   }
 
   lockCarEvent(id : number){
@@ -100,7 +100,6 @@ export class CarComponent implements OnInit {
   }
 
   notificationEvent(message : any){
-    this.showNotification = true;
     this.notification = message;
   }
 
@@ -119,6 +118,12 @@ export class CarComponent implements OnInit {
       this.carService.setCARS(data);
     //this.carService.getAvaliableCarsOnly().subscribe(avaliableCars => this.avaliableCars = avaliableCars);
     });
+  }
+
+  addCarEvent(b : boolean){
+    this.showCarForm = b;
+    this.showCars = true;
+    this.reloadCarListEvent();
   }
 
 }
