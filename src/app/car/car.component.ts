@@ -116,7 +116,7 @@ export class CarComponent implements OnInit {
     {
       this.cars = data;
       this.carService.setCARS(data);
-    //this.carService.getAvaliableCarsOnly().subscribe(avaliableCars => this.avaliableCars = avaliableCars);
+      // this.carService.getAvaliableCarsOnly().subscribe(avaliableCars => this.avaliableCars = avaliableCars);
     });
   }
 

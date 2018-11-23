@@ -35,5 +35,14 @@ export class UserService {
       }
     });
   }
+  public getUserById(id : number) : User {
+    let user: User;
+    this.USERS.forEach(u => {
+      if(u.id == id){
+        user = u;
+      }
+    });
+    return user;
+  }
 
 }

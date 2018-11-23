@@ -17,6 +17,9 @@ export class UserDetailComponent implements OnInit {
   showUserForm : EventEmitter<Boolean> = new EventEmitter<Boolean>();
   @Output()
   showUserDetail : EventEmitter<Boolean> = new EventEmitter<Boolean>();
+  @Output()
+  notification : EventEmitter<string> = new EventEmitter<string>();
+
 
   constructor( private userService: UserService) { }
   ngOnInit() {
@@ -28,7 +31,9 @@ export class UserDetailComponent implements OnInit {
   }
 
   deleteUser(id : number){
+    let userAux = this.userService.getUserById(id);
     this.userService.deleteUser(id);
     this.showUserDetail.emit(false);
+    this.notification.emit( userAux.name + " " + userAux.lastName + " Ha sido borrado con éxito.")
   }
 }

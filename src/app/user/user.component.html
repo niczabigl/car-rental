@@ -23,8 +23,19 @@
       </div>
     </div> 
 </div>
-<app-user-detail *ngIf="isSelectedUser" [user]="selectedUser" (userToForm)="editUserEvent($event)" (showUserForm)="showUserFormEvent($event)" (showUserDetail) = "deleteUserEvent($event)"></app-user-detail>
-<app-user-form *ngIf="showUserForm" (showUserForm)="showUserFormEvent($event)" [user]= "selectedUser" [isNewUser]="isNewUser"></app-user-form>
+<app-user-detail *ngIf="isSelectedUser" 
+  [user]="selectedUser" 
+  (userToForm)="editUserEvent($event)" 
+  (showUserForm)="showUserFormEvent($event)" 
+  (showUserDetail) = "deleteUserEvent($event)"
+  (notification)="notificationEvent($event)">
+</app-user-detail>
+<app-user-form *ngIf="showUserForm" 
+  (showUserForm)="showUserFormEvent($event)" 
+  [user]= "selectedUser" 
+  [isNewUser]="isNewUser"
+  (notification)="notificationEvent($event)">
+</app-user-form>
 <div class="buton-container">
-  
+<app-notifications [notification] = notification ></app-notifications>  
 </div>

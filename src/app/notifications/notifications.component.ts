@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition  } from '@angular/material';
+import { Notificacion, NotificacionType } from '../model/notificacion';
 
 @Component({
   selector: 'app-notifications',
@@ -8,26 +9,46 @@ import { MatSnackBar } from '@angular/material';
 })
 export class NotificationsComponent implements OnInit {
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   constructor(public snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
-
+    this.notification.type = NotificacionType.Info;
   }
 
   @Input()
-  notification : string;
+  notification : Notificacion;
 
-  showNotification(message : string){
+  showNotification(message : string, type:string){
     if((message != undefined || message != null) && message.length>0){
+      let backGroundColor = this.getTypeNotification(type);
       setTimeout(() => this.snackBar.open(message,"",{
-        duration: 1500
+        duration: 1500, 
+        horizontalPosition : this.horizontalPosition,
+        verticalPosition : this.verticalPosition,
+        panelClass: [backGroundColor]
       }));
     }
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.showNotification(changes.notification.currentValue);
+    this.showNotification(changes.notification.currentValue, this.notification.getType());
+  }
+
+  getTypeNotification(type:string): string{
+    switch(type){
+      case 'success':
+        return 'green-snackbar';
+      case 'error':
+        return 'red-snackbar';
+      case 'alert':
+        return 'yellow-snackbar';
+      case 'info':
+        return 'blue-snackbar';
+    }
   }
 }
 

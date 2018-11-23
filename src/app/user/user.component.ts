@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/user';
 import { UserService } from '../services/user.service';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user',
@@ -19,6 +18,8 @@ export class UserComponent implements OnInit {
   showUsers : boolean;
   showUserForm : boolean;
   showUserDetail : boolean;
+
+  notification : string;
 
   constructor(private userService: UserService) { }
 
@@ -92,5 +93,9 @@ export class UserComponent implements OnInit {
     this.selectedUser = null;
     this.showUserDetail = b;
     this.isSelectedUser = false;
+  }
+
+  notificationEvent(message : any){
+    this.notification = message;
   }
 }
